@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 프로그램 만들때 마다 고쳐줘야하는 곳 -->
+	<typeAliases>
+		<typeAlias type="global.sesoc.web3.vo.Member" alias="Member" />
+		<!-- global.sesoc.web3.vo.Member 타입을 Member로 줄인 것이야  -->
+	</typeAliases>
+	
+	<!-- 프로그램 만들때 마다 고쳐줘야하는 곳 -->
+	<mappers>
+		<mapper resource="memberMapper.xml" />
+	</mappers>
+</configuration>

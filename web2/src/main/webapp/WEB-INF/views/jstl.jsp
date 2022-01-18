@@ -32,6 +32,7 @@
 	<p>${date}</p>
 	
 	<p>*if 태그</p>
+	<!-- 	꼭 서야 하는 것이 if -->
 	
 	<c:if test="${number != 2}">
 	

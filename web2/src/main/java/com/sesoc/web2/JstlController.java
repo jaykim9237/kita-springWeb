@@ -36,4 +36,15 @@ public class JstlController {
 		//리퀘스트 요청이 지속 될 때까지 지속됨
 		return "jstl";
 	}
+	
+	@RequestMapping(value = "/jstl2", method = RequestMethod.GET)
+	public String jstlTest2(Model model) {
+		String s= "abcde FSEG sd fSD 가나다라";
+		/* 두번 째 jstl은 파일은 따로 만들었지만 컨트롤러를 같이 사용한 것 그래서 컨트롤러에 새로 메서드를 만들어 준 것 */
+		model.addAttribute("str", s);
+				return "jstl2";
+	}
+	
+	
+	
 }
