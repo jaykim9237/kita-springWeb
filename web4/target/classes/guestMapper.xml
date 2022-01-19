@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!-- 방명록정보 처리 SQL -->
+<mapper namespace="global.sesoc.web4.dao.GuestbookMapper">
+
+	<!-- 글저장 -->
+	<insert id="insert" parameterType="guestbook">
+		insert into web4_guestbook (num, name, password, content)
+		values (web4_guestbook_seq.nextval, #{name}, #{password}, #{content})
+	</insert>
+	
+</mapper>

@@ -46,10 +46,17 @@ public class MemberDAO {
 	public Member selectMember(String id) {
 		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
 		Member m = mapper.select(id);
+		/* 모델을 읽을 변수 잘 생각해야해 info.jsp에서 불러가서 사용하는 것이라서*/
+		/*select 인터페이스를 만들어 놓고 바로 구현하는 것처럼 보일 수 있게 해놓는 것이 마이바티스가 해주는 것이야 */
 		return m;
 	}
 	
 	//회원 목록 
+	public ArrayList<Member> listMember() {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		ArrayList<Member> list = mapper.list();
+		return list;
+	}
 	
 	//회원 정보 삭제
 	public int deleteMember(String id) {
@@ -59,6 +66,8 @@ public class MemberDAO {
 		result = mapper.delete(id);
 		return result;
 	}
+
+
 
 
 	

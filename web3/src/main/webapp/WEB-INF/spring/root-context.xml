@@ -28,6 +28,7 @@
 	</bean>
 
 	<!-- sqlSessionTemplete -->
+	<!-- value 부분을 고쳐야할일이 많이 생길 수 있는 곳 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />

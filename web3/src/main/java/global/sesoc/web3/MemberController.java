@@ -57,7 +57,14 @@ public class MemberController {
 			return "info";
 	}
 	
-	//회원 목록 보기
+	//회원 목록
+		@RequestMapping(value = "/list", method = RequestMethod.GET)
+		public String info(Model model) {
+			ArrayList<Member> list = dao.listMember();
+			model.addAttribute("list", list);
+			return "list";
+	}
+	
 	
 	//회원 정보 삭제
 		@RequestMapping(value = "/delete", method = RequestMethod.GET)

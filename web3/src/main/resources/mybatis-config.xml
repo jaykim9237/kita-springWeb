@@ -5,6 +5,7 @@
 <configuration>
 
 	<!-- 프로그램 만들때 마다 고쳐줘야하는 곳 -->
+	<!-- 값만 받아서 주고 받고 하는 클래스, vo클래스를 모두 적어줘야해, alias를 만들어 줄 것을 -->
 	<typeAliases>
 		<typeAlias type="global.sesoc.web3.vo.Member" alias="Member" />
 		<!-- global.sesoc.web3.vo.Member 타입을 Member로 줄인 것이야  -->
@@ -12,6 +13,7 @@
 	
 	<!-- 프로그램 만들때 마다 고쳐줘야하는 곳 -->
 	<mappers>
+	<!-- 여기랑 연결된 곳은 sql명령어와 관련 된 것들이 들어있는 것이야 -->
 		<mapper resource="memberMapper.xml" />
 	</mappers>
 </configuration>
