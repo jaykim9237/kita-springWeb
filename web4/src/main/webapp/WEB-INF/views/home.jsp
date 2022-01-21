@@ -1,16 +1,17 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Home web4</title>
+<meta charset="UTF-8">
+<title>web4</title>
 </head>
 <body>
-<h1>
-	[ WEB4 ]
-</h1>
 
-<P><a href="list">방명록</a></P>
+<h1>[ Springweb4 ]</h1>
+
+<p><a href="write">가입</a></p>
+<p><a href="list">목록보기</a></p>
 
 </body>
 </html>

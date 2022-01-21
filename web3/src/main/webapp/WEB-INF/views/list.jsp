@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>회원목록</title>
 	<style>
-		table,td{
+	   	table,td{
 		 border: 1px solid black;
 		}
 		td{
@@ -19,7 +19,7 @@
 	${list}<br>
 	
 	<table>
-	<c:forEach var="m" items="${list}">
+	<c:forEach var="m" items="--${list}">
 		<tr>
 			<td><a href="info?id=${m.id}">${m.id}</a></td>
 			<td><a href="delete?id=${m.id}">>삭제</a></td>

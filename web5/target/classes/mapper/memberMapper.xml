@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다오아래 있는 게스트북 메퍼의 인터페이스를 마이바티스 문법에 맞게 재구현 한 부분 -->
+
+<!-- 방명록정보 처리 SQL -->
+<mapper namespace="global.sesoc.web5.dao.MemberMapper">
+	
+	<!-- 회원 가입 -->
+	<insert id="insert" parameterType="member">
+	insert 
+		into web5_member 
+		values (
+		#{id}
+		, #{password}
+		, #{name}
+		, #{phone}
+		, #{address}
+		, #{email}
+		)
+	</insert>
+	
+</mapper>

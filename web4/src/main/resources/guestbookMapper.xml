@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다오아래 있는 게스트북 메퍼의 인터페이스를 마이바티스 문법에 맞게 재구현 한 부분 -->
+
+<!-- 방명록정보 처리 SQL -->
+<mapper namespace="global.sesoc.web4.dao.GuestbookMapper">
+
+	<!-- 글저장 -->
+	<insert id="insert" parameterType="guestbook">
+	<!-- 
+	1. 키워드를 제일 위에 그리고 그 아래는 들여쓰기
+	2. 쉼표를 아래 둔 이유 : 확인을 잘하고 마지막꺼 지우기 좋게
+	3. 괄호가 있는지 없는지 알 수 있게, 괄호안의 컬럼들을 한 줄씩 써주면 좋아 나중에 수식올라가고 그러면 정말 답이 없음-->
+		insert 
+			into web4_guestbook 
+			(
+				num
+				, name
+				, password
+				, content
+			)
+			
+		values 
+			(
+				web4_guestbook_seq.nextval
+				, #{name}
+				, #{password}
+				, #{content}
+				
+			)
+	</insert>
+	
+	<!-- 모든 글 검색 -->
+	<select id="list" resultType="guestbook">
+		select 
+			* 
+			from web4_guestbook 
+			order by num DESC
+	</select>
+	
+	<!-- 글 삭제 -->
+	<delete id="delete" parameterType="guestbook">
+		delete 
+			from web4_guestbook 
+			where 	num = #{num} 
+					and password = #{password}
+	
+	</delete>
+	
+</mapper>
