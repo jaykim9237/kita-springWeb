@@ -24,4 +24,4 @@ public class HomeController {
 		return "home";
 	}
 	
-}
+}//controller

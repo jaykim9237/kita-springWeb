@@ -17,5 +17,17 @@ public class MemberDAO {
 		int result = mapper.insert(member);
 		return result;
 	}
+
+	public Member getMember(String id) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		Member m = mapper.getMember(id);
+		return m;
+	}
+
+	public int  update(Member member) {
+		MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+		int result = mapper.update(member);
+		return result;
+	}
 }
 ;

@@ -7,6 +7,8 @@
 <title>리소스 사용</title>
 <!-- src/main/webapp/resources/css/default.css 파일 불러오기 -->
 <link rel="stylesheet" href="resources/css/default.css">
+<!-- src/main/webapp/resources/js/test.js 파일 불러오기 -->
+<script src="resources/js/test.js"></script>
 </head>
 <body>
 	<h1>[ 리소스 사용 ]</h1>

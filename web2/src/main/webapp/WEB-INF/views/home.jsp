@@ -33,7 +33,7 @@
 			<!-- <li><a href="param1">GET method로 parameter</a></li>
 			이렇게 물음표 뒤에 값을 넣어서.... 하는건데 ...-->
 			<li><a href="param2">POST method로 parameter</a></li>
-			<li><a href="">VO객체로 전달</a></li>
+			<!-- <li><a href="">VO객체로 전달</a></li> -->
 		</ol>
 		
 	<li><p>세션 테스트</p></li>	

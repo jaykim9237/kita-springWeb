@@ -23,9 +23,14 @@ function formCheck(){
 		return false;
 		}
 	if(password.value != password2.value){
-		alert("비밀번호를 정확하게 입력해주세요")} 
+		alert("비밀번호를 정확하게 입력해주세요") 
+		return false;
+		}
+	return true;
+}
 
-	return false;
+function idCheckOpen(){
+	window.open('idcheck', 'win', 'left=500,top=200,width=400,height=300');
 }
 </script>
 </head>
@@ -35,8 +40,8 @@ function formCheck(){
 		<table>
 		<tr>
 			<th>ID</th>
-			<td><input type="text" name="id" id="id" required="required">
-					<input type="button" value="아이디 중복확인">
+			<td><input type="text" name="id" id="id" required="required" readonly="readonly">
+				<input type="button" onclick="idCheckOpen()" value="아이디 중복확인">
 			</td>
 		</tr>
 		<tr>
@@ -46,7 +51,7 @@ function formCheck(){
 		</tr>
 		<tr>
 			<th>비밀번호 재입력</th>
-			<td><input type="password" name="password" id="password" required="required">
+			<td><input type="password" name="password2" id="password2" required="required">
 			</td>
 		</tr>
 		<tr>
@@ -71,7 +76,7 @@ function formCheck(){
 		</tr>
 		</table>
 		
-		<input type="submit" value="submit" >
+		<input type="submit" value="가입" >
 		<input type="reset" value="다시쓰기">
 		
 	</form>

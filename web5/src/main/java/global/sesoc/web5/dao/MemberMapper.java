@@ -4,6 +4,10 @@ import global.sesoc.web5.vo.Member;
 
 public interface MemberMapper {
 
-	int insert(Member member);
+	public int insert(Member member);
+
+	public Member getMember(String id);
+
+	public int update(Member member);
 
 }
