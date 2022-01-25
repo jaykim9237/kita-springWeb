@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다오아래 있는 게스트북 메퍼의 인터페이스를 마이바티스 문법에 맞게 재구현 한 부분 -->
+
+<!-- 방명록정보 처리 SQL -->
+<mapper namespace="global.sesoc.web5.dao.BoardMapper">
+	<insert id="insertBoard" parameterType="board">
+		insert
+		into
+			web5_board
+			(
+				boardnum
+				, id
+				, title
+				, contents
+			)
+		values
+			(
+				web5_board_seq.nextval
+				, #{id}
+				, #{title}
+				, #{contents}
+			)
+	</insert>
+	
+	<!-- 게시글 목록 -->
+	<select id = "list" resultType="board">
+	select
+		boardnum
+		, title
+		, id
+		, hits
+		, to_char(inputdate, 'mm/dd') inputdate 
+		<!-- 마지막에 컬럼 이름만 자바랑 똑같이 만들면 돼 sql에서는 date타입으로 줬었구
+		sql에서 작업하는 거니까 자바에서 String이었던거랑은 크게 상관이 없어 -->
+	from 
+		web5_board 
+	order by 
+		boardnum desc
+	</select>
+	
+	<!-- 게시글 하나 자세히 보기 -->
+	<select id="read" resultType="board" parameterType="int">
+	select
+		*
+	from
+		web5_board
+	where
+		boardnum= #{boardnum}
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="board">
+		update
+			web5_board
+		set
+			title = #{title}
+			, contents = #{contents}
+		where
+			boardnum= #{boardnum}
+	</update>
+</mapper>

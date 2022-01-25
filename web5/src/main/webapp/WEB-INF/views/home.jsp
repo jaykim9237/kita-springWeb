@@ -11,7 +11,7 @@
 
 <h1>[ Springweb5 ]</h1>
 	<c:if test="${sessionScope.loginId != null}">
-		<h2>${sessionScope.loginID}님 환영합니다.</h2>
+		<h2>${sessionScope.loginId}님 환영합니다.</h2>
 	</c:if>
 
 //POST 없으면 다 GET방식이야

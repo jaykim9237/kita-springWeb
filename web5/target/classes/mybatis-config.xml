@@ -8,6 +8,7 @@
 	<!-- 값만 받아서 주고 받고 하는 클래스, vo클래스를 모두 적어줘야해, alias를 만들어 줄 것을 -->
 	<typeAliases>
 		<typeAlias type="global.sesoc.web5.vo.Member" alias="member" />
+		<typeAlias type="global.sesoc.web5.vo.Board" alias="board" />
 		<!-- global.sesoc.web3.vo.Member 타입을 Member로 줄인 것이야  -->
 	</typeAliases>
 	
@@ -15,5 +16,6 @@
 	<mappers>
 	<!-- 여기랑 연결된 곳은 sql명령어와 관련 된 것들이 들어있는 것이야 -->
 		<mapper resource="mapper/memberMapper.xml"/>
+		<mapper resource="mapper/boardMapper.xml"/>
 	</mappers>
 </configuration>

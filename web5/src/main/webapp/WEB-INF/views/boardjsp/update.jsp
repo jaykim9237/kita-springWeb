@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Write</title>
+<title>글 수정하기</title>
 <script>
 function formCheck(){
 	var title = document.getElementById('title');
@@ -29,24 +29,25 @@ function formCheck(){
 
 </head>
 <body>
-<h1>[게시판 글쓰기]</h1>
+<h1>[게시글 수정하기]]</h1>
 
 <!-- 여기에 있는 name이랑, board.java에 있는 변수명이랑 rkxdkdigo  -->
-<form id="write" action="write" method="post" onsubmit="return formCheck()">
+<form id="update" action="update" method="post" onsubmit="return formCheck()">
+	<input type="hidden" name="boardnum" value="${board.boardnum} }">
 	<table>
 		<tr>
 		<th>제목</th>
-		<td><input type="text" name="title" id="writeTitle"></td>
+		<td><input type="text" name="title" id="writeTitle" value="${board.title}"></td>
 		</tr>
 		
 		<tr>
 		<th>내용</th>
-		<td><input type="text" name="contents" id="writeContents"></td>
+		<td><input type="text" name="contents" id="writeContents" value="${board.contents}"></td>
 		</tr>
 		
 		<tr>
 		<th>파일첨부</th>
-		<td><input type="file" name="writeFile" id="writeFile"></td>
+		<td><input type="file" name="file" id="writeFile" ></td>
 		</tr>
 		
 	</table>
