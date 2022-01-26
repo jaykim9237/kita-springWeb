@@ -17,5 +17,6 @@
 	<!-- 여기랑 연결된 곳은 sql명령어와 관련 된 것들이 들어있는 것이야 -->
 		<mapper resource="mapper/memberMapper.xml"/>
 		<mapper resource="mapper/boardMapper.xml"/>
+		<mapper resource="mapper/managerMapper.xml"/>
 	</mappers>
 </configuration>

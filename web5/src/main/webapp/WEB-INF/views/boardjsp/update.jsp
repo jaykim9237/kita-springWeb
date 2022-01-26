@@ -33,21 +33,22 @@ function formCheck(){
 
 <!-- 여기에 있는 name이랑, board.java에 있는 변수명이랑 rkxdkdigo  -->
 <form id="update" action="update" method="post" onsubmit="return formCheck()">
-	<input type="hidden" name="boardnum" value="${board.boardnum} }">
+	<input type="hidden" name="boardnum" value="${board.boardnum}">
 	<table>
 		<tr>
 		<th>제목</th>
-		<td><input type="text" name="title" id="writeTitle" value="${board.title}"></td>
+		<td><input type="text" name="title" id="writeTitle" style="width:400px;" value="${board.title}"></td>
 		</tr>
 		
 		<tr>
 		<th>내용</th>
-		<td><input type="text" name="contents" id="writeContents" value="${board.contents}"></td>
+		<td><textarea name="contents" id="writeContents" 
+			style="width:400px;height:200px;resize:none;">${board.contents}</textarea></td>
 		</tr>
 		
 		<tr>
 		<th>파일첨부</th>
-		<td><input type="file" name="file" id="writeFile" ></td>
+		<td><input type="file" name="upload" size="30" ></td>
 		</tr>
 		
 	</table>

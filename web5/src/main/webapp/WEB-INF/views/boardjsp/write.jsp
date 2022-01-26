@@ -36,17 +36,17 @@ function formCheck(){
 	<table>
 		<tr>
 		<th>제목</th>
-		<td><input type="text" name="title" id="writeTitle"></td>
+		<td><input type="text" name="title" id="writeTitle" style="width:400px;"></td>
 		</tr>
 		
 		<tr>
 		<th>내용</th>
-		<td><input type="text" name="contents" id="writeContents"></td>
+		<td><textarea name="contents" id="writeContents" style="width:400px;height:200px;resize:none;"></textarea></td>
 		</tr>
 		
 		<tr>
 		<th>파일첨부</th>
-		<td><input type="file" name="writeFile" id="writeFile"></td>
+		<td><input type="file" name="upload" size="30" ></td>
 		</tr>
 		
 	</table>

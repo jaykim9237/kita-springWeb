@@ -42,6 +42,7 @@ public class BoardController {
 	// 글저장
 	@RequestMapping(value = "write", method = RequestMethod.POST)
 	public String write(Board board, HttpSession session) {
+		//언제 loginId를 세션에 넣었냐면, 우리 멤버 컨트롤러에서 로그인 할 때 set으로 넣었어 
 		String id = (String) session.getAttribute("loginId");
 		logger.debug("로그인 아이디 {}", id);
 		board.setId(id);
@@ -77,11 +78,38 @@ public class BoardController {
 	  
 	@RequestMapping(value = "update", method = RequestMethod.POST) 
 	public String update(Board board, HttpSession session) { 
-		
-
+		//로그인 한 사용자가 본인글만 수정하도록 수정조건을 글번호와 작성자 아이디로 
+		String id = (String) session.getAttribute("loginId");
+		board.setId(id);
+//		int num = dao.update(board); 내가 혼자 생각했지만 틀린 것
+//		board.setBoardnum(num);
 		dao.update(board);
 		return "redirect:/board/list"; 
 	 }
 	 
-
+	/*방법 1 처음부터 boardnum 값이 하나가 들어있는 것을 board객체로 받아온 것이지 만약에 그러지 않았다면 
+	 		아래 방법처럼 board를 new로 새로 받아와야해 */
+	@RequestMapping(value = "delete", method = RequestMethod.GET) 
+	public String delete(Board board, HttpSession session) {
+		String id = (String) session.getAttribute("loginId");
+		board.setId(id);
+		logger.debug("전달 된 파람 :{}", board);
+		dao.delete(board);
+		return "redirect:/board/list";
+	}
+	/* 방법 2
+	@RequestMapping(value = "delete", method = RequestMethod.GET) 
+	public String delete(int num, HttpSession session) {
+		--boardnum을 그냥 num에 받아온 것이지 우리가 만든 것은 boardnum인데, 그니까 이거를 보드객체에 넣어줘야지
+		--객체를 생성하기
+		Board board = new Board();
+		--보드넘에 num값을 넣어주는 것
+		board.setBoardnum(num);
+		--로그인 아이디를 받아서 넣어주는 것 
+		String id = (String) session.getAttribute("loginId");
+		board.setId(id);
+		logger.debug("전달 된 파람 :{}", board);
+		dao.delete(board);
+		return "redirect:/board/list";
+	}*/
 }

@@ -13,6 +13,12 @@ public interface BoardMapper {
 
 		public Board read(int num);
 
-		public Board update(Board board);
+		public int update(Board board);
+
+		public int delete(Board board);
+
+		public int updateHits(int num);
+
+
 
 }

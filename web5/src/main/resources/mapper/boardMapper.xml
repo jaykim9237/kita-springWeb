@@ -49,7 +49,7 @@
 	from
 		web5_board
 	where
-		boardnum= #{boardnum}
+		boardnum= #{num}
 	</select>
 	
 	<!-- 게시글 수정 -->
@@ -60,6 +60,27 @@
 			title = #{title}
 			, contents = #{contents}
 		where
+			<!-- 보드넘이 같은 조건을 준거야, 마지막 브레이크인거지 만약에 이게 없다면 글번호를 고칠거지 -->
 			boardnum= #{boardnum}
+			and id = #{id}
+			<!--여기 엔드로 아이디가 없으면 다른 사람의 글을 고칠 수 있을 거야 -->
+	</update>
+	
+	<delete id="delete" parameterType="board">
+		delete
+		from
+			web5_board
+		where
+			 boardnum= #{boardnum}
+			and id = #{id}
+	</delete>
+	
+	<update id="updateHits" parameterType="int">
+		update
+				web5_board
+			set
+				hits = hits + 1
+			where
+				boardnum= #{boardnum}
 	</update>
 </mapper>

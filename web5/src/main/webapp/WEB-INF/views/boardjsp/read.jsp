@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>글읽기</title>
+<script>
+	function del(){
+		if(confirm('삭제하시겠습니까?')){
+			location.href = 'delete?boardnum=${board.boardnum}';
+		}
+	}
+</script>
 </head>
 <body>
 <h1>[게시판 글읽기]</h1>
@@ -39,8 +46,26 @@
 			<td></td>
 		</tr>
 	</table>
-	<input type="button" value="삭제">
-	<a href="list">목록보기</a>
-	<a href="update?num=${board.boardnum}">수정하기</a>
+	<div id="navigator">
+		<a href="list">목록보기</a>
+		
+		<%-- 이건 로그인 한사람만 볼 수 있는것이고 우리는 로그인 한 그 사람만 수정할 수 있게 만들어야지
+		<c:if test = "${sessionScope.loginId != null}"> 
+		지금 아래있는 것은 본인이냐고 물어본 것이야--%>
+		
+		<c:if test = "${sessionScope.loginId == board.id}">
+		<a href="update?num=${board.boardnum}">수정하기</a>
+		
+		<a href="javascript:del()" >삭제하기</a>
+		<%--
+		방법 1
+		<a href="delete?boardnum=${board.boardnum}">삭제하기</a>
+		 방법 2  
+		<a href="delete?num=${board.boardnum}">삭제하기</a> 
+		이건 보드객체로 받는 것이 아니라 그냥 num에 담아서 보내주는 것이니까 가서 받고 따로 board 객체를 만들어야지. 왜냐하면 필요하니까
+		--%>
+		</c:if>
+	</div>
+	
 </body>
 </html>

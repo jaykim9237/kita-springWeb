@@ -53,7 +53,12 @@ public class MemberController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Member member, HttpSession session) {
 		//전달된 아이디로 회원정보를 검색
-		Member resultMember = dao.getMember(member.getId());
+		//로그인 폼에서 가지고 온 값들이 멤버 타입인지 어떻게 알지? -->우리가 멤버에 아이디랑 패스워드를 정의를 해준 것이잖아
+		//그거를 네임에 받아서 가지고 온 것이야, 우리가 처음에 그 아이디를 멤버 타입으로 정해준 것이니까 멤버로 받아올 수 있는 것이지 
+		
+		//여기에서 겟아이디로 불러줘도 우리가 아는 것은 value값을 login에서 받아왔잖아
+		//그리고 그 값을 다오의 get멤버 메서드에 넣은거지--> 그 겟멤버 메서드는 아이디를 받아서 mapper에 저장을 해서 받아오는거야
+		Member resultMember = dao.getMember(member.getId()); 
 		//전달된 비밀번호와 디비에서 검색한 비밀번호 비교
 		if(resultMember !=null && resultMember.getPassword().equals(member.getPassword())) {
 			//아이디 비밀번호가 맞으면 세션에 아이디와 이름을 저장하고 메인화면으로 리다이렉트
@@ -72,7 +77,7 @@ public class MemberController {
 	public String logout(Member member, HttpSession session) {
 			session.removeAttribute("loginId");
 			session.removeAttribute("loginName");
-			return "memberjsp/logout";
+			return "redirect:/";
 		}
 	
 	/*

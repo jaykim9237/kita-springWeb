@@ -24,6 +24,10 @@
 		<p><a href="member/update">개인정보수정</a></p>
 		<p><a href="member/logout">로그아웃</a></p>
 	</c:if>
+	
+	<c:if test="${sessionScope.loginId == 111}">
+		<p><a href="manager/list">회원 목록보기</a></p>
+	</c:if>
 <p><a href="board/list">게시판</a></p>
 
 </body>
