@@ -75,7 +75,6 @@ public class BoardController {
 	}
 
 	//글 수정폼에 입력한 값을 전달받아 DB갱신
-	  
 	@RequestMapping(value = "update", method = RequestMethod.POST) 
 	public String update(Board board, HttpSession session) { 
 		//로그인 한 사용자가 본인글만 수정하도록 수정조건을 글번호와 작성자 아이디로 

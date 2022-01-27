@@ -25,7 +25,7 @@ create table web5_board (
 	inputdate	date default sysdate, 		--작성일,
 	hits		number default 0,			--조회수 //
 	originalfile	varchar2(200),			--첨부파일 원래이름
-	savedfile		varchar2(100)			--첨부파일 저장된 이름
+	savedfile		varchar2(100)			--첨부파일 저장된 이름--똑같은 이름으로 두개가 생길 때
 );
 
 --게시판 글 번호에 사용할 시퀀스
