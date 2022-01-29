@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.abc.myself">
+	<logger name="global.sesoc.ajex">
 		<level value="info" />
 	</logger>
 	
