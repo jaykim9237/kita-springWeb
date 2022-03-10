@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="AdminVO" type="global.sesoc.school.vo.AdminVO"/>
+		<typeAlias alias="StudentVO" type="global.sesoc.school.vo.StudentVO"/>
+		<typeAlias alias="ScoreVO" type="global.sesoc.school.vo.ScoreVO"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mapper/adminMapper.xml"/>
+		<mapper resource="mapper/studentMapper.xml"/>
+		<!-- <mapper resource="mapper/scoreMapper.xml"/> -->
+	</mappers>
+</configuration>

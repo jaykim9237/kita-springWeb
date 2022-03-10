@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.school.dao.StudentMapper">
+
+	<insert id="enrollStudent" parameterType="StudentVO">
+		insert 
+			into
+				school_student 
+			values (
+				#{stnum}
+				, #{stclass}
+				, #{name}
+				)
+	</insert>
+	
+	<select id="listStudent" resultType="StudentVO">
+		select
+				*
+			from
+				school_student
+			order by
+				stclass, stnum
+	</select>
+	
+	<!-- <delete id="deleteStudent" parameterType="StudentVO">
+		delete 
+			from 
+				SCHOOL_STUDENT 
+			where 
+				stclass=#{stclass} and stnum=#{stnum};
+	</delete> -->
+</mapper>
