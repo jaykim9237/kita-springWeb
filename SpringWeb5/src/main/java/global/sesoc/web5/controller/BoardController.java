@@ -39,7 +39,7 @@ public class BoardController {
 	@Autowired
 	BoardDAO dao;
 	
-	//게시판 관련 상수값들
+	//게시판 관련 상수값들   은 앞에다 선언을 해주는 것이 좋아
 	final int countPerPage = 10;			//페이지당 글 수
 	final int pagePerGroup = 5;				//페이지 이동 링크를 표시할 페이지 수
 	final String uploadPath = "/boardfile";	//파일 업로드 경로
@@ -72,6 +72,7 @@ public class BoardController {
 		board.setId(id);
 		
 		logger.debug("저장할 글 정보 : {}", board);
+		//로거 찍어보는 거야 첨부파일 관련해서
 		logger.debug("파일 정보 : {}", upload.getContentType());
 		logger.debug("파일 정보 : {}", upload.getName());
 		logger.debug("파일 정보 : {}", upload.getOriginalFilename());
@@ -83,6 +84,7 @@ public class BoardController {
 		//우리 그 파일 이름 같은거 다운받으면 번호 자동으로 만들어 주는거 있잖아 그거를,, 헉 못들었다....
 		if (!upload.isEmpty()) {
 			//uploadPath이거가 위에서 알려준 저장 경로야, 폴더이름 같은거지
+			//FileService이거 선생님이 만든거 우리도 만들어야해 
 			String savedfile = FileService.saveFile(upload, uploadPath);
 			board.setOriginalfile(upload.getOriginalFilename());
 			board.setSavedfile(savedfile);

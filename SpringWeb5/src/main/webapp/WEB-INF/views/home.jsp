@@ -4,6 +4,14 @@
 <html>
 <head>
 	<title>Web5</title>
+
+<script>
+function viewChange() {
+	var view = document.getElementById("view");
+	view.innerHTML = '<form>이름 <input type="input"></form>';
+}
+</script>
+
 </head>
 <body>
 <h1>[ web5 ]</h1>
@@ -23,5 +31,9 @@
 	<li><a href="board/list">게시판</a></li>
 </ul>
 
+
+<!-- 쪽지 오른쪽 페이지 바뀌는 js 는 innerHTML jq는 HTML -->
+<div id="view">lasjeflajwef</div>
+<input type="button" value="테스트" onclick="viewChange()")>
 </body>
 </html>

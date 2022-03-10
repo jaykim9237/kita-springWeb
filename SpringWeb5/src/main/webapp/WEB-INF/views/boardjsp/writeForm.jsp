@@ -40,7 +40,7 @@ function formCheck() {
 <form id="writeform" action="write"  method="post" 
 	enctype="multipart/form-data" onsubmit="return formCheck();">
 	<!-- 이거 우리가 처음보는거, 파일을 업로드 할 때 필요한 것, 만약에 업로드가 안되면 
-	이거를 제일 멈저 확인해야해-->
+	이거를 제일 멈저 확인해야해. enctype을 지정해줘야 함-->
 <table>
 <tr>
 	<th>제목</th>
@@ -59,13 +59,14 @@ function formCheck() {
 	<td>
 		<input type="file" name="upload" size="30">
 		<!-- 보드객체에 안만들어 줬던 것들은 따로 선언을 해줘야해, 우리가 포스트로 
-		WRITE 메서드에 값들을 전달을 할거잖아  -->
+		WRITE 메서드에 값들을 전달을 할거잖아 name이 중요해 , MultipartFile upload컨트롤러에서 이부분--파일에 대한 타입 -->
 	</td>
 </tr>
 <!-- 
 <tr>
-		1.만약에 파일을 2개 업로드 할거면 두개 따로 받아서 선언을 해주거나 
-		2. 같은 파일을 담는거 있잖아, ArrayList로 받으면 되는거야
+		1.만약에 파일을 2개 업로드 할거면 두개 따로 받아서 선언을 해주거나, 변수를 두개 받아주는거야
+		2. 같은 파일을 담는거 있잖아, ArrayList로 받으면 되는거야. name을 똑같이 해주고 변수를 배열로 받는거야
+			ArrayList<MultipartFile> upload 이렇게 선언을 해주는 것이지
 	<th>파일첨부</th> 
 	<td>
 		<input type="file" name="upload2" size="30">
