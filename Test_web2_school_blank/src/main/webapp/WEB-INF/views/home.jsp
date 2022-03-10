@@ -27,7 +27,7 @@
 	
 	<p><a href="score/add">성적입력</a></p>
 	
-	<p><a href="score/total">전체성적보기</a></p>
+	<p><a href="score/list">전체성적보기</a></p>
 	
 	<p><a href="score/chart">통계</a></p>
 </c:if>

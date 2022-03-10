@@ -5,6 +5,35 @@
 
 <mapper namespace="global.sesoc.school.dao.ScoreMapper">
 
-	
+	<insert id="addScore" parameterType="ScoreVO">
+		insert 
+			into
+				school_score 
+			values (
+				#{stnum}
+				, #{java}
+				, #{sql}
+				, #{spring}
+				)
+	</insert>
 
+	<select id="listScore" resultType="ScoreVO">
+		select 
+		    	stnum
+			    ,   java
+			    ,   sql
+			    ,   spring
+			    ,   java + sql + spring as total
+			    ,   round((java + sql + spring)/3, 1) as avg
+			from
+		   		 school_score
+			order by stnum
+	</select>
+	
+	<select id="all_stclass">
+		select
+    		sum(java) + sum(sql) +sum(spring)
+    		from school_score
+			
+	</select>
 </mapper>

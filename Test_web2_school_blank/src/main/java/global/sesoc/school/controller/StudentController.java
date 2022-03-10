@@ -36,7 +36,7 @@ public class StudentController {
 	public String enrollStudent(StudentVO studentvo) {
 		logger.debug("전달 된 학생 값{}", studentvo);
 		studentDAO.enrollStudent(studentvo);
-		return "home";
+		return "redirect:/";
 	}
 	
 	/* 학생관리로 이동 이동하면 리스트가 펼쳐져야함*/
@@ -50,26 +50,32 @@ public class StudentController {
 	
 	/* 학생 삭제 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
-	public String deleteStudent(String stclass, String stnum) {
+	public String deleteStudent(String stnum) {
 		
-		logger.debug("학생 삭제 반 {}", stclass);
 		logger.debug("학생 삭제 학번{}", stnum);
 		
-		studentDAO.deleteStudent(stclass, stnum);
+		studentDAO.deleteStudent(stnum);
 		
-		return "studentjsp/editStudent";
+		return "redirect:../student/manager";
 	}
 	
 	/* 학생 수정으로 이동 */
 	@RequestMapping(value = "edit", method = RequestMethod.GET)
-	public String editStudent(String stclass, String stnum) {
+	public String editStudent(String stnum, Model model, HttpSession session) {
 		
-		logger.debug("학생 수정 반 {}", stclass);
 		logger.debug("학생 수정 학번{}", stnum);
 		
-		studentDAO.editStudent(stclass, stnum);
+		StudentVO studentvo = studentDAO.oneStudent(stnum);
+		model.addAttribute("studentvo", studentvo);
+		
 		return "studentjsp/editStudent";
 	}
 	
 	/* 학생 수정 */
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
+	public String editStudent(StudentVO studentvo, HttpSession session) {
+		studentDAO.editStudent(studentvo);
+		return "redirect:/";
+	}
+	
 }

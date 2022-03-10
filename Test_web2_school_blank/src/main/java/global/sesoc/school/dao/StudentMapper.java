@@ -11,8 +11,11 @@ public interface StudentMapper {
 
 	ArrayList<StudentVO> listStudent();
 
-	int deleteStudent(String stclass, String stnum);
+	int deleteStudent(String stnum);
 
-	int editStudent(String stclass, String stnum);
+	StudentVO oneStudent(String stnum);
+
+	int editStudent(StudentVO studentvo);
+
 
 }

@@ -14,6 +14,25 @@ public class ScoreDAO {
 
 	@Autowired
 	SqlSession sqlSession;
+
+	public int addScore(ScoreVO scorevo) {
+		ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
+		int result = mapper.addScore(scorevo);
+		return result;
+	}
+
+	public ArrayList<ScoreVO> listScore() {
+		ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
+		ArrayList<ScoreVO> scorelist = mapper.listScore();
+		return scorelist;
+	}
+
+	public ArrayList<ScoreVO> all_stclass(String text) {
+		ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
+		ArrayList<ScoreVO> all_stclass = mapper.all_stclass(text);
+
+		return all_stclass;
+	}
 	
 
 }

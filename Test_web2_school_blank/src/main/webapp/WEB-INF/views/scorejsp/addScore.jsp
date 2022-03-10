@@ -12,9 +12,38 @@
 
 	<h1>[ 성적 입력 ]</h1>
 	
-	학번 :
-	자바:
 	
+	<form action="addScore"  method="post">
+		<table>
+		<tr>
+				<th>학번</th>
+				<td>
+					<input type="text" id="stnum" name="stnum" required="required">
+				</td>
+			</tr>
+			<tr>
+				<th>Java</th>
+				<td>	
+					<input type="number" id="java" name="java" required="required">
+				</td>
+			</tr>
+			<tr>
+				<th>SQL</th>
+				<td>	
+					<input type="number" id="sql" name="sql" required="required">
+				</td>
+			</tr>
+			<tr>
+				<th>Spring</th>
+				<td>	
+					<input type="number" id="spring" name="spring" required="required">
+				</td>
+			</tr>
+		</table>
+		
+		<input type="submit" value="저장">
+		<input type="reset" value="취소">
+	</form>
 	
 </body>
 </html>

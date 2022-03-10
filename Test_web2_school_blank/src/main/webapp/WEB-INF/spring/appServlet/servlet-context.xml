@@ -22,18 +22,21 @@
 	
 	<context:component-scan base-package="global.sesoc.school" />
 	
-	<!-- interceptor 등록 -->
 	<beans:bean id="loginInterceptor" class="global.sesoc.school.interceptor.LoginInterceptor" />
 	
-	<!-- 아래 내용을 추가하여 interceptor 적용 -->
+	
 	<interceptors>
 		<interceptor>
-			<mapping path="/insert"/>
+			<mapping path="/student/enroll"/>
+			<mapping path="/student/edit"/>
+			<mapping path="/student/manager"/>
 
+			<mapping path="/score/add"/>
+			<mapping path="/score/chart"/>
+			<mapping path="/score/list"/>
 			
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
-	</interceptors> 
-
+	</interceptors>
 	
 </beans:beans>

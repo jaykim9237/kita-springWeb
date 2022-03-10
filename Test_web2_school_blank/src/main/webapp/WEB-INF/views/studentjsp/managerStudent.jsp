@@ -8,6 +8,7 @@
 <title>학생 성적 관리</title>
 <script src='<c:url value="/resources/js/jquery-3.6.0.js" />'></script>
 
+
 </head>
 <body>
 
@@ -27,8 +28,9 @@
 			<td>${list.stnum}</td>
 			<td>${list.name}</td>
 			
-			<td><input type="button" value="삭제" onclick="location.href='delete?stclass=${list.stclass}&stnum=${list.stnum}'"></td>
-			<td><input type="button" value="수정" onclick="location.href='edit?stclass=${list.stclass}&stnum=${list.stnum}'"></td>
+			<td><input type="button" value="삭제" onclick="location.href='delete?stnum=${list.stnum}'"></td>
+			<td><input type="button" value="수정" onclick="location.href='edit?stnum=${list.stnum}'"></td>
+		
 		</tr>
 	</c:forEach>
 	

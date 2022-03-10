@@ -16,6 +16,15 @@
 				)
 	</insert>
 	
+	<select id="oneStudent" parameterType="string" resultType="StudentVO">
+	  	select
+	  		*
+	  	from
+	  		school_student
+	  	where
+	  		stnum = #{stnum}
+  	</select>
+	
 	<select id="listStudent" resultType="StudentVO">
 		select
 				*
@@ -25,11 +34,22 @@
 				stclass, stnum
 	</select>
 	
-	<!-- <delete id="deleteStudent" parameterType="StudentVO">
+	<delete id="deleteStudent" parameterType="string">
 		delete 
 			from 
 				SCHOOL_STUDENT 
 			where 
-				stclass=#{stclass} and stnum=#{stnum};
-	</delete> -->
+				stnum = #{stnum}
+	</delete>
+	
+	<update id="editStudent" parameterType="StudentVO">
+		update
+			school_student
+		set
+			stclass = #{stclass}
+			,	name = #{name}
+		where
+			stnum = #{stnum}
+	
+	</update>
 </mapper>

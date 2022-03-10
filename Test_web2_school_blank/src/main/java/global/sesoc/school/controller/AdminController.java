@@ -44,8 +44,15 @@ public class AdminController {
 			return "home";
 	}
 	/* 로그아웃 하면 메인으로 이동*/
-	
-	
+		
 	}//로그인.post
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(AdminVO adminvo, HttpSession session) {
+		session.removeAttribute("loginId");
+	
+		return "redirect:/";
+	
+	}
 	
 }
