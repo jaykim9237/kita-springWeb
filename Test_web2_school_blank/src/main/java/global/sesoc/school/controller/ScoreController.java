@@ -54,9 +54,9 @@ public class ScoreController {
 	/* 성적통계로 이동 */
 	@RequestMapping(value = "chart", method = RequestMethod.GET)
 	public String chartScore(Model model) {
-		ArrayList<StudentVO> studentlist = studentDAO.listStudent();
+		ArrayList<StudentVO> listclass = studentDAO.listClass();
 		ArrayList<ScoreVO> scorelist = scoreDAO.listScore();
-		model.addAttribute("studentlist", studentlist);
+		model.addAttribute("listclass", listclass);
 
 		model.addAttribute("scorelist", scorelist);
 		return "scorejsp/chartScore";

@@ -52,4 +52,14 @@
 			stnum = #{stnum}
 	
 	</update>
+	
+	
+	<select id="listClass" resultType="StudentVO">
+		select
+				distinct stclass
+			from
+				school_student
+			order by
+				stclass
+	</select>
 </mapper>

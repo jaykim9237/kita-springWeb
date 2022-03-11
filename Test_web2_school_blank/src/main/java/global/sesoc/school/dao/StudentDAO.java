@@ -51,6 +51,12 @@ public class StudentDAO {
 		return result;
 	}
 
+	public ArrayList<StudentVO> listClass() {
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		ArrayList<StudentVO> classlist = mapper.listClass();
+		return classlist;
+	}
+
 
 
 

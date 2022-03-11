@@ -51,7 +51,7 @@ $(document).ready(function(){
 				<select name="stclass" id="stclass">
 					 <option value="">전체</option>
 						
-						<c:forEach var="list" items= "${studentlist}">
+						<c:forEach var="list" items= "${listclass}">
 						    <option value="${list.stclass}">${list.stclass}</option>
 						 </c:forEach>
 				</select>

@@ -17,5 +17,7 @@ public interface StudentMapper {
 
 	int editStudent(StudentVO studentvo);
 
+	ArrayList<StudentVO> listClass();
+
 
 }
