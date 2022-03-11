@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.school.dao.ScoreMapper">
+
+	<!-- 성적 저장 -->
+	<insert id="scoreInsert" parameterType="ScoreVO">
+		insert into school_score values (#{stnum}, #{java}, #{sql}, #{spring})
+	</insert>
+	
+	<!-- 전체 학생 성적 조회 -->
+	<select id="scoreList" resultType="ScoreVO">
+		select
+			stnum
+			, java
+			, sql
+			, spring
+			, (java + sql + spring) total
+			, round((java + sql + spring) / 3, 1) avg
+		from 
+			school_score
+		order by
+			stnum
+	</select>
+	
+	<!-- 성적 통계  -->
+	<select id="calc" parameterType="map" resultType="int">
+		select
+			<choose>
+				<when test="calc == 'total'">
+					sum (
+						<choose>
+							<when test="subject == 'java'">java</when>
+							<when test="subject == 'sql'">sql</when>
+							<when test="subject == 'spring'">spring</when>
+							<otherwise>(java + sql + spring)</otherwise>
+						</choose>
+					)
+				</when>
+				<otherwise>
+					avg (
+						<choose>
+							<when test="subject == 'java'">java</when>
+							<when test="subject == 'sql'">sql</when>
+							<when test="subject == 'spring'">spring</when>
+							<otherwise>(java + sql + spring) / 3</otherwise>
+						</choose>
+					)
+				</otherwise>
+			</choose>
+		from
+			school_student st, school_score sc
+		where
+			st.stnum = sc.stnum
+			<if test="stclass != '' and stclass != null">
+				and stclass = #{stclass}
+			</if>
+	</select>
+
+</mapper>

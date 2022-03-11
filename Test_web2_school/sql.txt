@@ -1,0 +1,43 @@
+-- school 예제
+-- DML / DDL 작성
+
+-- 관리자 정보 테이블 
+create table school_admin (
+    adminid varchar2(20) primary key,		--관리자 ID
+    adminpwd varchar2(20) not null			--관리자 비밀번호
+);
+
+-- 관리자 계정 정보
+insert into school_admin values ('admin', '1234');
+
+-- 학생 정보 테이블
+create table school_student (
+	stnum 	varchar2(10) primary key,	--학생 구분번호
+	stclass	char(1) default 'A',		--반
+	name	varchar2(20) not null		--이름
+);
+
+-- 성적 테이블
+create table school_score (
+	stnum	varchar2(10) unique,		--학생 구분번호
+	java	number(3) default 0,		--java과목 점수
+	sql		number(3) default 0,		--sql과목 점수
+	spring	number(3) default 0,		--spring과목 점수
+	constraint school_score_fk foreign key(stnum)
+    references school_student(stnum) on delete cascade
+);
+
+
+-- TEST
+select * from  school_student;
+select * from  school_score;
+
+insert into school_student values ('0001', 'A', '홍길동');
+insert into school_student values ('0002', 'B', '김철수');
+insert into school_student values ('0003', 'A', '이영수');
+insert into school_student values ('0004', 'B', '김영희');
+
+insert into school_score values ('0001', 100, 90, 80);
+insert into school_score values ('0002', 90, 80, 70);
+insert into school_score values ('0003', 88, 77, 66);
+insert into school_score values ('0004', 77, 66, 88);

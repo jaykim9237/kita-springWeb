@@ -1,0 +1,5 @@
+[학사 관리 시스템]
+spring, mybatis, ajax, jquery
+
+- 가입없음
+- 관리자 계정 1개 테이블에 저장하고 시작
